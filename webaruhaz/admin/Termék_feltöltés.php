@@ -1,20 +1,22 @@
 <!DOCTYPE>
 <?php
 include("adatbázis/adatbázis.php");
+if(!isset($_SESSION['email'])){
+	echo "<script>window.open('bejelentkezes.php?nem_admin=Nem vagy Admin!','_self')</script>";
+}
+else{
 ?>
 <html>
 	<head>
 		<title>Termék feltöltés</title>
 	</head>
-	<script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
-	<script> tinymce.init({selector:'textarea'}); </script>
 	<body bgcolor="steelblue">
 		<form action="Termék_feltöltés.php" method="post" enctype="multipart/form-data">
 			
-			<table align="center" width="700" border="2" bgcolor="lightsteelblue">
+			<table align="center" width="795" height="800" border="2" bgcolor="lightsteelblue">
 			
 			<tr align="center">
-				<td colspan="7"><h2>Insert New Post Here</h2></td>
+				<td colspan="7"><h2>Új könyv hozzáadása</h2></td>
 			</tr>
 			
 			<tr>
@@ -72,7 +74,6 @@ include("adatbázis/adatbázis.php");
 	</body>
 </html>
 <?php
-	
 	//getting the text data from the fields
 	if(isset($_POST['Hozzáadás'])){
 		$cim = $_POST['cim'];
@@ -87,14 +88,15 @@ include("adatbázis/adatbázis.php");
 		$kep = $_FILES['kep']['name']; 
 		$kep_tmp = $_FILES['kep']['tmp_name'];
 		
-		move_uploaded_file($kep_tmp,"könyv_borítók/$kep");
+		move_uploaded_file($kep_tmp,"konyv_boritok/$kep");
 		
-		echo $insert_product = "insert into konyvek (cim,iro,ar,megjelenes,tartalom,kep,isbn,kategoria) values ('$cim','$iro','$ar','$megjelenes','$tartalom','$isbn','$kep','$kategoria')";
+		echo $insert_konyv = "insert into konyvek (cim,iro,ar,megjelenes,tartalom,kep,isbn,kategoriaid) values ('$cim','$iro','$ar','$megjelenes','$tartalom','$kep','$isbn','$kategoria')";
 		
-		$insert_pro = mysqli_query($con, $insert_product);
-		if($insert_pro){
+		$insert_konyv = mysqli_query($con, $insert_konyv);
+		if($insert_konyv){
 			echo "<script>alert('Könyv hozzáadva!')</script>";
-			echo "<script>window.open('Termék_feltöltés.php','_self')</script>";
+			echo "<script>window.open('index.php?Termék_feltöltés.php','_self')</script>";
 		}
 	}
 ?>
+<?php } ?>

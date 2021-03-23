@@ -1,7 +1,6 @@
 <!DOCTYPE>
 <?php 
-session_start();
-require_once("funkciok/functions.php");
+include("funkciok/functions.php");
 ?>
 <html>
     <head>
@@ -17,7 +16,7 @@ require_once("funkciok/functions.php");
 		<!--Header starts here-->
 		<div class="header_wrapper">
 		
-			<a href="index.php"><img id="logo" src="kepek/logo.jpg" /> </a>
+			<img id="logo" src="kepek/logo.jpg" />
 		</div>
 		<!--Header ends here-->
 		
@@ -25,11 +24,11 @@ require_once("funkciok/functions.php");
 		<div class="menubar">
 				
 				<ul id="menu">
-					<li><a href="index.php">Főoldal</a></li>
-					<li><a href="összes_termék.php">Összes termék</a></li>
-					<li><a href="vasarlo/fiokom.php">Fiókom</a></li>
+					<li><a href="#">Főoldal</a></li>
+					<li><a href="#">Összes termék</a></li>
+					<li><a href="#">Fiókom</a></li>
 					<li><a href="#">Regisztráció</a></li>
-					<li><a href="kosar.php">Kosár</a></li>
+					<li><a href="#">Kosár</a></li>
 					<li><a href="#">Elérhetőség</a></li>
 				</ul>
 				
@@ -53,34 +52,44 @@ require_once("funkciok/functions.php");
 				</div>
 		
 				<div id="content_area">
+				
 					<div id="kosar">
 						<span style="float:right; font-size:18px; padding:5px; line-height:40px;">
-							<?php
-								if(isset($_SESSION['email_cim'])){
-									echo "<b>Üdvözlet:</b>" . $_SESSION['email_cim'] . "<b style='color:white;'></b>";
-								}
-								else{
-									echo "<b>Üdvözlet Látogató:</b>";
-								}
-							?>  
-							<b style="color:yellow">Kosár -</b> Összes könyv: <?php osszes_konyv();?> - Teljes ár: <?php teljes_ar(); ?> <a href="kosar.php" style="color:yellow">Kosaramhoz</a>
-							<?php
-								if(!isset($_SESSION['email_cim'])){
-									echo "<a href='fizetes.php' style='color:white;'>Belépés</a>";
-								}
-								else{
-									echo"<a href='kijelentkezes.php' style='color:white;'>Kijelentkezés</a>";
-								}
-							?>
+							Üdvözlet látogató! <b style="color:yellow">Kosár -</b> Összes könyv - Teljes ár: <a href="cart.php" style="color:yellow">Kosaramhoz</a>
 						</span>
 					</div>
-					<?php vasarlas(); ?>
-					<form action = '' method = "POST">
-					<div id="konyvek_doboz">
-						<?php getkonyvek(); ?>
-						<?php getkonyvek_kategoria(); ?>
+				
+						<?php
+							if(isset($_GET['id'])){
+							$id = $_GET['id'];
+							$get_konyvek = "select * from konyvek where id='$id'";
+							$run_konyvek = mysqli_query($con, $get_konyvek);
+	
+							while($row_konyvek=mysqli_fetch_array($run_konyvek)){
+										$id = $row_konyvek['id'];
+										$cim = $row_konyvek['cim'];
+										$iro = $row_konyvek['iro'];
+										$ar = $row_konyvek['ar'];
+										$megjelenes = $row_konyvek['megjelenes'];
+										$kep = $row_konyvek['kep'];
+										$tartalom = $row_konyvek['tartalom'];
+		
+								echo "
+										<div id='single_konyv'>
+										<h3>$cim</h3>
+										<img src='admin/konyv_boritok/". $row_konyvek['kep'] ."' width='400' height='300' />
+										<p><b> $ar Ft </b></p>
+										<p>$tartalom </p>
+										<a href='index.php' style='float:left;'>Vissza</a>
+				
+										<a href='index.php?id=$id'><button stle='float:right;'>Kosárhoz adás</button></a>
+				
+									</div>
+								";
+							}
+							}
+						?>
 					</div>
-					</form>
 				</div>
 		</div>
 		<!--Content wrapper ends here-->

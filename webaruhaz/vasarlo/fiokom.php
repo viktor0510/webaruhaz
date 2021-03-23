@@ -6,7 +6,7 @@ require_once("funkciok/functions.php");
 <html>
     <head>
     <title>Mousetrap webáruház</title>
-	<link rel="stylesheet" href="stilusok/style.css" media="all" />
+	<link rel="stylesheet" href="stílusok/style.css" media="all" />
     </head>
 
 <body>
@@ -17,7 +17,7 @@ require_once("funkciok/functions.php");
 		<!--Header starts here-->
 		<div class="header_wrapper">
 		
-			<a href="index.php"><img id="logo" src="kepek/logo.jpg" /> </a>
+			<a href="../index.php"><img id="logo" src="kepek/logo.jpg" /> </a>
 		</div>
 		<!--Header ends here-->
 		
@@ -25,9 +25,9 @@ require_once("funkciok/functions.php");
 		<div class="menubar">
 				
 				<ul id="menu">
-					<li><a href="index.php">Főoldal</a></li>
-					<li><a href="összes_termék.php">Összes termék</a></li>
-					<li><a href="vasarlo/fiokom.php">Fiókom</a></li>
+					<li><a href="../index.php">Főoldal</a></li>
+					<li><a href="../összes_termék.php">Összes termék</a></li>
+					<li><a href="../fiokom.php">Fiókom</a></li>
 					<li><a href="#">Regisztráció</a></li>
 					<li><a href="kosar.php">Kosár</a></li>
 					<li><a href="#">Elérhetőség</a></li>
@@ -46,9 +46,21 @@ require_once("funkciok/functions.php");
 		<!--Content wrapper starts here-->
 		<div class="content_wrapper">
 				<div id="sidebar">
-					<div id="sidebar_title">Kategóriák</div>
+					<div id="sidebar_title">Fiókom:</div>
 					<ul id="kategoriak">
-						<?php getkategoria(); ?>
+					<?php
+						$felhasznalom = $_SESSION['email_cim'];
+						$get_megjegyzes = "select * from felhasznalo where email_cim='$felhasznalom'";
+						$run_megjegyzes = mysqli_query($con, $get_megjegyzes);
+						$row_megjegyzes = mysqli_fetch_array($run_megjegyzes);
+						$check_megjegyzes = $row_megjegyzes['megjegyzes'];
+						$check_felhasznalo_nev = $row_megjegyzes['felhasznalo_nev'];
+					?>
+						<li><a href="fiokom.php?rendeleseim">Rendeléseim</a></li>
+						<li><a href="fiokom.php?szerkesztes">Fiók szerkesztése</a></li>
+						<li><a href="fiokom.php?valtoztatas">Jelszó változtatása</a></li>
+						<li><a href="fiokom.php?torles">Fiók törlése</a></li>
+						<li><a href="kijelentkezes.php">Kilépés</a></li>
 					<ul>
 				</div>
 		
@@ -57,13 +69,9 @@ require_once("funkciok/functions.php");
 						<span style="float:right; font-size:18px; padding:5px; line-height:40px;">
 							<?php
 								if(isset($_SESSION['email_cim'])){
-									echo "<b>Üdvözlet:</b>" . $_SESSION['email_cim'] . "<b style='color:white;'></b>";
-								}
-								else{
-									echo "<b>Üdvözlet Látogató:</b>";
+									echo "<b>Üdvözlet:</b>" . $_SESSION['email_cim'];
 								}
 							?>  
-							<b style="color:yellow">Kosár -</b> Összes könyv: <?php osszes_konyv();?> - Teljes ár: <?php teljes_ar(); ?> <a href="kosar.php" style="color:yellow">Kosaramhoz</a>
 							<?php
 								if(!isset($_SESSION['email_cim'])){
 									echo "<a href='fizetes.php' style='color:white;'>Belépés</a>";
@@ -77,8 +85,32 @@ require_once("funkciok/functions.php");
 					<?php vasarlas(); ?>
 					<form action = '' method = "POST">
 					<div id="konyvek_doboz">
-						<?php getkonyvek(); ?>
-						<?php getkonyvek_kategoria(); ?>
+						<?php
+							if(!isset($_GET['rendeleseim'])){
+								if(!isset($_GET['szerkesztes'])){
+									if(!isset($_GET['valtoztatas'])){
+										if(!isset($_GET['torles'])){
+											echo 
+											 "LOL";
+											
+										}
+									}
+								}
+							}
+						?>
+						<?php
+							if(isset($_GET['szerkesztes'])){
+								include("szerkesztes.php");
+							}
+						?>
+						<?php
+							if(isset($_GET['valtoztatas'])){
+								include("valtoztatas.php");
+							}
+							if(isset($_GET['torles'])){
+								include("torles.php");
+							}
+						?>
 					</div>
 					</form>
 				</div>

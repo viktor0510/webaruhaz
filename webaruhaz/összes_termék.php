@@ -1,7 +1,6 @@
 <!DOCTYPE>
 <?php 
-session_start();
-require_once("funkciok/functions.php");
+include("funkciok/functions.php");
 ?>
 <html>
     <head>
@@ -53,34 +52,40 @@ require_once("funkciok/functions.php");
 				</div>
 		
 				<div id="content_area">
+				
 					<div id="kosar">
 						<span style="float:right; font-size:18px; padding:5px; line-height:40px;">
-							<?php
-								if(isset($_SESSION['email_cim'])){
-									echo "<b>Üdvözlet:</b>" . $_SESSION['email_cim'] . "<b style='color:white;'></b>";
-								}
-								else{
-									echo "<b>Üdvözlet Látogató:</b>";
-								}
-							?>  
-							<b style="color:yellow">Kosár -</b> Összes könyv: <?php osszes_konyv();?> - Teljes ár: <?php teljes_ar(); ?> <a href="kosar.php" style="color:yellow">Kosaramhoz</a>
-							<?php
-								if(!isset($_SESSION['email_cim'])){
-									echo "<a href='fizetes.php' style='color:white;'>Belépés</a>";
-								}
-								else{
-									echo"<a href='kijelentkezes.php' style='color:white;'>Kijelentkezés</a>";
-								}
-							?>
+							Üdvözlet látogató! <b style="color:yellow">Kosár -</b> Összes könyv - Teljes ár: <a href="kosar.php" style="color:yellow">Kosaramhoz</a>
 						</span>
 					</div>
-					<?php vasarlas(); ?>
-					<form action = '' method = "POST">
+				
 					<div id="konyvek_doboz">
-						<?php getkonyvek(); ?>
-						<?php getkonyvek_kategoria(); ?>
+					<?php
+						$get_konyvek = "select * from konyvek";
+						$run_konyvek = mysqli_query($con, $get_konyvek);
+	
+						while($row_konyvek=mysqli_fetch_array($run_konyvek)){
+						$id = $row_konyvek['id'];
+						$cim = $row_konyvek['cim'];
+						$iro = $row_konyvek['iro'];
+						$ar = $row_konyvek['ar'];
+						$megjelenes = $row_konyvek['megjelenes'];
+						$kep = $row_konyvek['kep'];
+		
+						echo "
+						<div id='single_konyv'>
+						<h3>$cim</h3>
+						<img src='admin/konyv_boritok/". $row_konyvek['kep'] ."' width='180' height='180' />
+						<p><b> $ar Ft </b></p>
+						<a href='details.php?id=$id' style='float:left;'>Részletek</a>
+				
+						<a href='index.php?id=$id'><button stle='float:right;'>Kosárhoz adás</button></a>
+				
+						</div>
+		";
+	}
+?>
 					</div>
-					</form>
 				</div>
 		</div>
 		<!--Content wrapper ends here-->

@@ -93,14 +93,14 @@ body {background:white;}
 
 #content_area{
 	width:1575px;
-	float:right;
+	float:left;
 	background:lightgrey;
 }
 
 #sidebar{
 	width:250px;
 	background:lightsteelblue;
-	float:left;
+	float:right;
 }
 
 #sidebar_title{
@@ -114,12 +114,12 @@ body {background:white;}
 }
 
 #kategoriak{
-	text-align:center;
+	text-align:left;
 }
 
 #kategoriak li {list-style:none; margin:10px;}
 
-#kategoriak a{color:black; padding:8px; margin:5px; text-align:center; text-decoration:none; font-size:23px; font-family:comic SANS MS;}
+#kategoriak a{color:black; padding:8px; margin:5px; text-align:left; text-decoration:none; font-size:20px; font-family:comic SANS MS;}
 
 #kategoriak a:hover{color:white; font-weight:bolder; text-decoration:underline;}
 
