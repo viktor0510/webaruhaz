@@ -18,6 +18,7 @@ require_once("funkciok/functions.php");
 		<div class="header_wrapper">
 		
 			<a href="index.php"><img id="logo" src="kepek/logo.jpg" /> </a>
+                <div></div>
 		</div>
 		<!--Header ends here-->
 		
@@ -28,7 +29,7 @@ require_once("funkciok/functions.php");
 					<li><a href="index.php">Főoldal</a></li>
 					<li><a href="összes_termék.php">Összes termék</a></li>
 					<li><a href="vasarlo/fiokom.php">Fiókom</a></li>
-					<li><a href="#">Regisztráció</a></li>
+					<li><a href="felhasznalo_regisztracio.php">Regisztráció</a></li>
 					<li><a href="kosar.php">Kosár</a></li>
 					<li><a href="#">Elérhetőség</a></li>
 				</ul>
@@ -54,7 +55,7 @@ require_once("funkciok/functions.php");
 		
 				<div id="content_area">
 					<div id="kosar">
-						<span style="float:right; font-size:18px; padding:5px; line-height:40px;">
+						<p style="font-size:18px; padding:5px; line-height:40px;">
 							<?php
 								if(isset($_SESSION['email_cim'])){
 									echo "<b>Üdvözlet:</b>" . $_SESSION['email_cim'] . "<b style='color:white;'></b>";
@@ -72,7 +73,7 @@ require_once("funkciok/functions.php");
 									echo"<a href='kijelentkezes.php' style='color:white;'>Kijelentkezés</a>";
 								}
 							?>
-						</span>
+						</p>
 					</div>
 					<?php vasarlas(); ?>
 					<form action = '' method = "POST">
@@ -88,7 +89,7 @@ require_once("funkciok/functions.php");
 		<!--Footer starts here-->
 		<div id="footer">Alsó 
 		
-		<h2 style="text-align:center; padding-top:30;">&copy; 2021 by www.OnlineTuting.com</h2>
+		<h2 style="text-align:center; padding-top:30;">&copy; 2021 by www.MousetrapBookshop.hu</h2>
 		
 		</div>
 		<!--Footer ends here-->

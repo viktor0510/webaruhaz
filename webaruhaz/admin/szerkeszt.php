@@ -1,5 +1,4 @@
 <?php
-session_start();
 if(!isset($_SESSION['email'])){
 	echo "<script>window.open('bejelentkezes.php?nem_admin=Nem vagy Admin!','_self')</script>";
 }
@@ -17,14 +16,14 @@ if(isset($_GET['szerkeszt'])){
 		$row_konyv=mysqli_fetch_array($run_konyv);
 			$konyv_id = $row_konyv['id'];
 			$konyv_cim = $row_konyv['cim'];
+                        $konyv_iro = $row_konyv['iro'];
+                        $konyv_ar = $row_konyv['ar'];
+                        $konyv_megjelenes = $row_konyv['megjelenes'];
+                        $konyv_tartalom = $row_konyv['tartalom'];
 			$konyv_kep = $row_konyv['kep'];
-			$konyv_ar = $row_konyv['ar'];
 			$konyv_isbn = $row_konyv['isbn'];
-			$konyv_tartalom = $row_konyv['tartalom'];
-			$konyv_iro = $row_konyv['iro'];
-			$konyv_megjelenes = $row_konyv['megjelenes'];
 			$konyv_kategoriaid = $row_konyv['kategoriaid'];
-			
+                        
 			$get_kategoria = "select * from kategoria where kategoriaid='$konyv_kategoriaid'";
 			$run_kategoria = mysqli_query($con, $get_kategoria);
 			$row_kategoria = mysqli_fetch_array($run_kategoria);
@@ -100,8 +99,9 @@ if(isset($_GET['szerkeszt'])){
 </html>
 <?php
 	//getting the text data from the fields
-	$update_id = $konyv_id;
+	
 	if(isset($_POST['modositas'])){
+                $update_id = $konyv_id;
 		$cim = $_POST['cim'];
 		$kategoria = $_POST['kategoria'];
 		$iro = $_POST['iro'];
@@ -116,8 +116,7 @@ if(isset($_GET['szerkeszt'])){
 		
 		move_uploaded_file($kep_tmp,"konyv_boritok/$kep");
 		
-		echo $update_konyv = "update konyvek set kategoria='$kategoria',cim='$cim',iro='$iro',ar='$ar',megjelenes='$megjelenes',tartalom='$tartalom',kep='$kep',isbn='$isbn' where kategoria='$update_id'";
-		
+                $update_konyv = "update konyvek set kategoriaid='$kategoria',cim='$cim',iro='$iro',ar='$ar',megjelenes='$megjelenes',tartalom='$tartalom',kep='$kep',isbn='$isbn' where id='$update_id'";
 		$run_konyv = mysqli_query($con, $update_konyv);
 		if($run_konyv){
 			echo "<script>alert('Könyv módosítva!')</script>";

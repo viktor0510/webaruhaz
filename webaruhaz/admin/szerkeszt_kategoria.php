@@ -1,5 +1,4 @@
 <?php
-session_start();
 if(!isset($_SESSION['email'])){
 	echo "<script>window.open('bejelentkezes.php?nem_admin=Nem vagy Admin!','_self')</script>";
 }

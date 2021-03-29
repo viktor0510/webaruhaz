@@ -27,7 +27,7 @@ include("funkciok/functions.php");
 					<li><a href="index.php">Főoldal</a></li>
 					<li><a href="összes_termék.php">Összes termék</a></li>
 					<li><a href="vasarlo/fiokom.php">Fiókom</a></li>
-					<li><a href="#">Regisztráció</a></li>
+					<li><a href="felhasznalo_regisztracio.php">Regisztráció</a></li>
 					<li><a href="kosar.php">Kosár</a></li>
 					<li><a href="#">Elérhetőség</a></li>
 				</ul>

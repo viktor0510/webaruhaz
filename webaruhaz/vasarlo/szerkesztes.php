@@ -19,11 +19,11 @@ $informacio = $row_vasarlo['megjegyzes'];
 								</tr>
 								<tr>
 									<td align="right">Felhasználónév:</td>
-									<td><input type="text" name="felhasznalonev" value="<?php echo $nev;?>" required/></td>
+									<td><input type="text" name="felhasznalo_nev" value="<?php echo $nev;?>" required/></td>
 								</tr>
 								<tr>
 									<td align="right">Email cím:</td>
-									<td><input type="text" name="email" value="<?php echo $email;?>"  required/></td>
+									<td><input type="text" name="email_cim" value="<?php echo $email;?>"  required/></td>
 								</tr>
 								<tr>
 									<td align="right">Jelszó</td>
@@ -31,7 +31,7 @@ $informacio = $row_vasarlo['megjegyzes'];
 								</tr>
 								<tr>
 									<td align="right">Információ</td>
-									<td><textarea cols="30" rows="20" name="megjegyzes" value="<?php echo $informacio;?>"></textarea></td>
+									<td><textarea cols="30" rows="20" name="megjegyzes" value="<?php echo $megjegyzes;?>"></textarea></td>
 								</tr>
 								<tr>
 									<td><input type="submit" name="modositas" value="Fiók módosítása"/></td>
@@ -39,16 +39,16 @@ $informacio = $row_vasarlo['megjegyzes'];
 							</table>
 						</form>
 <?php
-	if(isset($_POST['update'])){
+	if(isset($_POST['modositas'])){
 		
-		$felhasznaloid=1;
-		$id = $_POST['azonosito'];
-		$felhasznalonev = $_POST['felhasznalonev'];
-		$email = $_POST['email'];
+		$felhasznaloid = $_SESSION['user']['id'];
+                $id = $azonosito;
+		$nev = $_POST['felhasznalo_nev'];
+		$email = $_POST['email_cim'];
 		$jelszo = $_POST['jelszo'];
 		$megjegyzes = $_POST['megjegyzes'];
 		
-		$update_felhasznalo = "update felhasznalo set felhasznalo_nev='$felhasznalonev', email_cim='$email', jelszo='$jelszo', megjegyzes='$megjegyzes' where felhasznaloid='$felhasznaloid'";
+		$update_felhasznalo = "update felhasznalo set felhasznalo_nev='$nev', email_cim='$email', jelszo='$jelszo', megjegyzes='$megjegyzes' where id='$id'";
 		$run_update = mysqli_query($con, $update_felhasznalo);
 		if($run_update){
 			echo "<script>alert('A fiókod frissítve lett!')</script>";

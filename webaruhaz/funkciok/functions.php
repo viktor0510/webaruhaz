@@ -8,7 +8,7 @@ function vasarlas(){
 	if(isset($_POST['id'])){
 		global $con;
 		$id = $_POST['id'];
-		$felhasznaloid=1;
+		$felhasznaloid = $_SESSION['user']['id'];
 		//$check_konyv = "select * from vasarlas where felhasznaloid='$felhasznaloid' AND konnyvid='$id'";
 		//$run_check = mysqli_query($con, $check_konyv);
 		var_dump($felhasznaloid);
@@ -23,16 +23,16 @@ function vasarlas(){
 }
 
 function osszes_konyv(){
-	if(isset($_GET['id'])){
+	if(filter_input(INPUT_GET,'id',FILTER_VALIDATE_INT)){
 		global $con;
-		$felhasznaloid=1;
+		$felhasznaloid = $_SESSION['user']['id'];
 		$get_konyvek = "select * from vasarlas where felhasznaloid='$felhasznaloid'";
 		$run_konyvek = mysqli_query($con, $get_konyvek);
 		$count_konyvek = mysqli_num_rows($run_konyvek);
 	}
 		else {
 		global $con;
-		$felhasznaloid=1;
+		$felhasznaloid = $_SESSION['user']['id'];
 		$get_konyvek = "select * from vasarlas where felhasznaloid='$felhasznaloid'";
 		$run_konyvek = mysqli_query($con, $get_konyvek);
 		$count_konyvek = mysqli_num_rows($run_konyvek);
@@ -44,7 +44,7 @@ function osszes_konyv(){
 function teljes_ar(){
 	$teljes = 0;
 	global $con;
-	$felhasznaloid=1;
+	$felhasznaloid = $_SESSION['user']['id'];
 	$select_ar = "select * from vasarlas where felhasznaloid='$felhasznaloid'";
 	$run_ar = mysqli_query($con, $select_ar);
 	while ($p_ar=mysqli_fetch_array($run_ar)){

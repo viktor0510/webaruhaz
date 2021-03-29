@@ -28,8 +28,8 @@ require_once("funkciok/functions.php");
 					<li><a href="../index.php">Főoldal</a></li>
 					<li><a href="../összes_termék.php">Összes termék</a></li>
 					<li><a href="../fiokom.php">Fiókom</a></li>
-					<li><a href="#">Regisztráció</a></li>
-					<li><a href="kosar.php">Kosár</a></li>
+					<li><a href="../felhasznalo_regisztracio.php">Regisztráció</a></li>
+					<li><a href="../kosar.php">Kosár</a></li>
 					<li><a href="#">Elérhetőség</a></li>
 				</ul>
 				
@@ -56,7 +56,6 @@ require_once("funkciok/functions.php");
 						$check_megjegyzes = $row_megjegyzes['megjegyzes'];
 						$check_felhasznalo_nev = $row_megjegyzes['felhasznalo_nev'];
 					?>
-						<li><a href="fiokom.php?rendeleseim">Rendeléseim</a></li>
 						<li><a href="fiokom.php?szerkesztes">Fiók szerkesztése</a></li>
 						<li><a href="fiokom.php?valtoztatas">Jelszó változtatása</a></li>
 						<li><a href="fiokom.php?torles">Fiók törlése</a></li>
@@ -86,7 +85,6 @@ require_once("funkciok/functions.php");
 					<form action = '' method = "POST">
 					<div id="konyvek_doboz">
 						<?php
-							if(!isset($_GET['rendeleseim'])){
 								if(!isset($_GET['szerkesztes'])){
 									if(!isset($_GET['valtoztatas'])){
 										if(!isset($_GET['torles'])){
@@ -96,7 +94,6 @@ require_once("funkciok/functions.php");
 										}
 									}
 								}
-							}
 						?>
 						<?php
 							if(isset($_GET['szerkesztes'])){

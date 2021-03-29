@@ -32,7 +32,7 @@ body {background:white;}
 
 
 .main_wrapper{
-	width:1825px;
+	width:100%;
 	height:auto;
 	margin:auto;
 	background:lightsteelblue;
@@ -41,19 +41,19 @@ body {background:white;}
 
 
 .header_wrapper{
-	width:1825px;
+	width:100%;
 	height:126px;
 
 }
 
 #logo{
 	float:left;
-	width:250px;
+	width:12%;
 	height:126px;
 }
 
 .menubar{
-	width:1575px;
+	width:88%;
 	height:75px;
 	background:steelblue;
 	color:white;
@@ -75,9 +75,9 @@ body {background:white;}
 #menu a {
 	text-decoration:none;
 	color:white;
-	padding:25px;
-	margin:22px;
-	font-size:25px;
+	padding:17px;
+	margin:14px;
+	font-size:20px;
 	font-family:COMIC SANS MS;
 }
 
@@ -86,19 +86,19 @@ body {background:white;}
 #form {float:right; padding-right:8px; line-height:70px;}
 
 .content_wrapper{
-	width:1825px;
+	width:100%;
 	margin:auto;
 	background:lightgrey;
 }
 
 #content_area{
-	width:1575px;
+	width:88%;
 	float:right;
 	background:lightgrey;
 }
 
 #sidebar{
-	width:250px;
+	width:12%;
 	background:lightsteelblue;
 	float:left;
 }
@@ -107,9 +107,9 @@ body {background:white;}
 	background:lightsteelblue;
 	text-align:center;
 	color:black;
-	font-size:30px;
+	font-size:20px;
 	font-family:arial;
-	padding:24.5px;
+	padding:20px;
 	font-weight:bolder;
 }
 
@@ -124,7 +124,7 @@ body {background:white;}
 #kategoriak a:hover{color:white; font-weight:bolder; text-decoration:underline;}
 
 #konyvek_doboz{
-	width:780px;
+	width:86%;
 	text-align:center;
 	margin-left:30px;
 	margin-bottom:10px;
@@ -132,10 +132,10 @@ body {background:white;}
 
 	#single_konyv{float:left; margin-left:30px; padding:10px;}
 	#single_konyv img {border:2px solid black;}
-	#kosar{width:1825px; height:50px; background:steelblue; color:white;}
+	#kosar{width:100%; height:50px; background:steelblue; color:white;}
 
 #footer{
-	width:1825px;
+	width:100%;
 	height:150px;
 	background:steelblue;
 	color:white;

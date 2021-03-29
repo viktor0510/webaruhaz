@@ -35,8 +35,9 @@ include("tartalmak/adatbázis.php");
 				echo "<script>alert('Jelszó vagy email cím helytelen!')</script>";
 				exit();
 			}
-			$felhasznaloid=1;
-			$select_kosar = "select * from vasarlas where felhasznaloid='$id'";
+			$_SESSION['user'] = $run_felhasznalo->fetch_array(MYSQLI_ASSOC);
+			$felhasznaloid=$_SESSION['user']['id'];
+			$select_kosar = "select * from vasarlas where felhasznaloid='".$felhasznaloid."'";
 			$run_kosar = mysqli_query($con, $select_kosar);
 			$check_kosar = mysqli_num_rows($run_kosar);
 			if($check_felhasznalo>0 AND $check_kosar==0){

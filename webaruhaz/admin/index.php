@@ -18,15 +18,13 @@ else{
 			<div id="header"></div>
 			
 				<div id="jobb">
-					<h2 style="text-align:center;">Tartalom Karbantartás:</h2>
+					<h2 style="text-align:center;">Tartalom Karbantartás</h2>
 					
 						<a href="index.php?termek_adas">Új termék hozzáadása</a>
 						<a href="index.php?termekek">Összes termék megtekintése</a>
 						<a href="index.php?kategoria_adas">Új kategória hozzáadása</a>
 						<a href="index.php?kategoriak">Összes kategória megtekintése</a>
 						<a href="index.php?felhasznalok">Felhasználók megtekintése</a>
-						<a href="index.php?vasarlasok">Vásárlások megtekintése</a>
-						<a href="index.php?fizetesek">Fizetések megtekintése</a>
 						<a href="kijelentkezes.php">Kijelentkezés</a>
 				
 				</div>

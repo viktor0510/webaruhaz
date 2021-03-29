@@ -28,7 +28,7 @@ require_once("funkciok/functions.php");
 					<li><a href="index.php">Főoldal</a></li>
 					<li><a href="összes_termék.php">Összes termék</a></li>
 					<li><a href="vasarlo/fiokom.php">Fiókom</a></li>
-					<li><a href="#">Regisztráció</a></li>
+					<li><a href="felhasznalo_regisztracio.php">Regisztráció</a></li>
 					<li><a href="kosar.php">Kosár</a></li>
 					<li><a href="#">Elérhetőség</a></li>
 				</ul>
@@ -87,7 +87,7 @@ require_once("funkciok/functions.php");
 								<?php
 									$teljes = 0;
 									global $con;
-									$felhasznaloid=1;
+									$felhasznaloid=$_SESSION['user']['id'];
 									$select_ar = "select * from vasarlas where felhasznaloid='$felhasznaloid'";
 									$run_ar = mysqli_query($con, $select_ar);
 									while ($p_ar=mysqli_fetch_array($run_ar)){
@@ -111,11 +111,11 @@ require_once("funkciok/functions.php");
 									<td><input type="text" size="4" name="darab" value="<?php echo $_SESSION['db'];?>"/></td>
 									<?php 
 										if(isset($_POST['vasarlas_frissites'])){
-											$darab = $_POST['db'];
+											$darab = $_POST['darab'];
 											$update_darab = "update vasarlas set db='$darab'";
 											$run_darab = mysqli_query($con, $update_darab);
 											$_SESSION['db']=$darab;
-											$teljes = $teljes*$darab;
+											$teljes = $teljes*(int)$darab;
 										}
 									?>
 									<td><?php echo $darab_ar; ?></td>
@@ -139,7 +139,7 @@ require_once("funkciok/functions.php");
 						<?php 
 						function kosar_frissites(){
 							global $con;
-							$felhasznaloid=1;
+							$felhasznaloid=$_SESSION['user']['id'];
 							if(isset($_POST['vasarlas_frissites'])){
 								foreach($_POST['eltavolitas'] as $eltavolitas_id){
 									$delete_konyv = "delete from vasarlas where konnyvid='$eltavolitas_id' AND felhasznaloid='$felhasznaloid'";
