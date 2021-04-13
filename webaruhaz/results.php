@@ -25,7 +25,7 @@ include("funkciok/functions.php");
 				
 				<ul id="menu">
 					<li><a href="index.php">Főoldal</a></li>
-					<li><a href="összes_termék.php">Összes termék</a></li>
+					<li><a href="osszes_termek.php">Összes termék</a></li>
 					<li><a href="vásárló/fiókom.php">Fiókom</a></li>
 					<li><a href="felhasznalo_regisztracio.php">Regisztráció</a></li>
 					<li><a href="kosár.php">Kosár</a></li>
@@ -96,9 +96,9 @@ include("funkciok/functions.php");
 		<!--Content wrapper ends here-->
 		
 		<!--Footer starts here-->
-		<div id="footer">Alsó 
+		<div id="footer">
 		
-		<h2 style="text-align:center; padding-top:30;">&copy; 2021 by www.OnlineTuting.com</h2>
+		<h2 style="text-align:center; padding-top:30;">&copy; 2021 by www.MousetrapBookshop.hu</h2>
 		
 		</div>
 		<!--Footer ends here-->

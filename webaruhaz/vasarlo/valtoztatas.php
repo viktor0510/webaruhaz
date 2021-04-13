@@ -1,7 +1,7 @@
 <h2 style="text-align:center;">Változtasd meg jelszavad</h2>
 
 <form action="" method="post">
-	<table align="center" width="600">
+	<table align="center" width="90%">
 	
 	<tr>
 	<td align="right"><b>Írd be jelenlegi jelszavad:</b></td>

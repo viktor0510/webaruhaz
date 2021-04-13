@@ -4,7 +4,7 @@
 	
 function vasarlas(){
 	echo "vasarlas"; 
-	var_dump($_POST);
+
 	if(isset($_POST['id'])){
 		global $con;
 		$id = $_POST['id'];

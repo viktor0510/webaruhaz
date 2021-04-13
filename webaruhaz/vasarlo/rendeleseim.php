@@ -30,9 +30,9 @@
 		<!--Content wrapper ends here-->
 		
 		<!--Footer starts here-->
-		<div id="footer">Alsó 
+		<div id="footer">
 		
-		<h2 style="text-align:center; padding-top:30;">&copy; 2021 by www.OnlineTuting.com</h2>
+		<h2 style="text-align:center; padding-top:30;">&copy; 2021 by www.MousetrapBookshop.hu</h2>
 		
 		</div>
 		<!--Footer ends here-->

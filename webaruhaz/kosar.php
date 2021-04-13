@@ -1,6 +1,5 @@
 <!DOCTYPE>
 <?php 
-session_start();
 require_once("funkciok/functions.php");
 ?>
 <html>
@@ -10,48 +9,7 @@ require_once("funkciok/functions.php");
     </head>
 
 <body>
-	
-	<!--Main Container starts here-->
-	<div class="main_wrapper">
-		
-		<!--Header starts here-->
-		<div class="header_wrapper">
-		
-			<a href="index.php"><img id="logo" src="kepek/logo.jpg" /> </a>
-		</div>
-		<!--Header ends here-->
-		
-		<!--Navigation bar starts here-->
-		<div class="menubar">
-				
-				<ul id="menu">
-					<li><a href="index.php">Főoldal</a></li>
-					<li><a href="összes_termék.php">Összes termék</a></li>
-					<li><a href="vasarlo/fiokom.php">Fiókom</a></li>
-					<li><a href="felhasznalo_regisztracio.php">Regisztráció</a></li>
-					<li><a href="kosar.php">Kosár</a></li>
-					<li><a href="#">Elérhetőség</a></li>
-				</ul>
-				
-			<div id="form">
-				<form method="get" action="results.php" enctype="multipart/form-data">
-					<input type="text" name="user_query" placeholder="Keress könyvünkre" />
-					<input type="submit" name="search" value="Keresés" />
-				</form>
-			</div>
-			
-		</div>
-		<!--Navigation bar ends here-->
-		
-		<!--Content wrapper starts here-->
-		<div class="content_wrapper">
-				<div id="sidebar">
-					<div id="sidebar_title">Kategóriák</div>
-					<ul id="kategoriak">
-						<?php getkategoria(); ?>
-					<ul>
-				</div>
-		
+
 				<div id="content_area">
 					<div id="kosar">
 						<span style="float:right; font-size:17px; padding:5px; line-height:40px;">
@@ -161,13 +119,7 @@ require_once("funkciok/functions.php");
 		</div>
 		<!--Content wrapper ends here-->
 		
-		<!--Footer starts here-->
-		<div id="footer">Alsó 
-		
-		<h2 style="text-align:center; padding-top:30;">&copy; 2021 by www.OnlineTuting.com</h2>
-		
-		</div>
-		<!--Footer ends here-->
+
 		
 	</div>
 	<!--Main Container ends here-->

@@ -13,7 +13,7 @@ $jelszo = $row_vasarlo['jelszo'];
 $informacio = $row_vasarlo['megjegyzes'];
 ?>
 						<form action="" method="post">
-							<table align="center" width="750">
+							<table align="center" width="100%">
 								<tr>
 									<td><h2>Fiók szerkesztése</h2></td>
 								</tr>
@@ -34,7 +34,7 @@ $informacio = $row_vasarlo['megjegyzes'];
 									<td><textarea cols="30" rows="20" name="megjegyzes" value="<?php echo $megjegyzes;?>"></textarea></td>
 								</tr>
 								<tr>
-									<td><input type="submit" name="modositas" value="Fiók módosítása"/></td>
+                                                                    <td colspan="3"><input type="submit" name="modositas" value="Fiók módosítása"/></td>
 								</tr>
 							</table>
 						</form>

@@ -24,11 +24,11 @@ include("funkciok/functions.php");
 		<div class="menubar">
 				
 				<ul id="menu">
-					<li><a href="#">Főoldal</a></li>
-					<li><a href="#">Összes termék</a></li>
-					<li><a href="#">Fiókom</a></li>
+					<li><a href="index.php">Főoldal</a></li>
+                                        <li><a href="osszes_termek.php">Összes termék</a></li>
+                                        <li><a href="vasarlo/fiokom.php">Fiókom</a></li>
 					<li><a href="felhasznalo_regisztracio.php">Regisztráció</a></li>
-					<li><a href="#">Kosár</a></li>
+                                        <li><a href="kosar.php">Kosár</a></li>
 					<li><a href="#">Elérhetőség</a></li>
 				</ul>
 				
@@ -76,8 +76,9 @@ include("funkciok/functions.php");
 		
 								echo "
 										<div id='single_konyv'>
+                                                                                <h2>$iro</h2>
 										<h3>$cim</h3>
-										<img src='admin/konyv_boritok/". $row_konyvek['kep'] ."' width='400' height='300' />
+										<img src='admin/konyv_boritok/". $row_konyvek['kep'] ."' width='300' height='400' />
 										<p><b> $ar Ft </b></p>
 										<p>$tartalom </p>
 										<a href='index.php' style='float:left;'>Vissza</a>
@@ -95,9 +96,9 @@ include("funkciok/functions.php");
 		<!--Content wrapper ends here-->
 		
 		<!--Footer starts here-->
-		<div id="footer">Alsó 
+		<div id="footer">
 		
-		<h2 style="text-align:center; padding-top:30;">&copy; 2021 by www.OnlineTuting.com</h2>
+		<h2 style="text-align:center; padding-top:30;">&copy; 2021 by www.MousetrapBookshop.hu</h2>
 		
 		</div>
 		<!--Footer ends here-->
